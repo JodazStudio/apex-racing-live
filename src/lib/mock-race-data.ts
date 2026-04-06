@@ -34,8 +34,8 @@ export const INITIAL_ATHLETES: Athlete[] = [
   { bib: '115', name: 'Mateo Rossi', category: 'Veteran', gender: 'M', country: 'IT', startTime: 0, lastCheckpoint: 0, lastCheckpointTime: 0, status: 'Started' },
 ].map(a => ({
   ...a,
-  startTime: Date.now() - Math.random() * 3600000, // started within the last hour
-}));
+  startTime: Date.now() - Math.random() * 3600000,
+})) as Athlete[];
 
 export const getCountryFlag = (code: string) => {
   const flags: Record<string, string> = {
