@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Eventos", href: "/#eventos" },
+  { label: "Inscripción", href: "/inscripcion", isHighlight: true },
   { label: "Live Dashboard", href: "/dashboard", isLive: true },
   { label: "Contacto", href: "/#contacto" },
 ];
