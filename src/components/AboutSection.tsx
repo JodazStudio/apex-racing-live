@@ -1,10 +1,10 @@
 import { CheckCircle } from "lucide-react";
 
 const points = [
-  "Más de 10 años de experiencia en cronometraje deportivo",
   "Tecnología RFID con chips desechables y reutilizables",
   "Resultados en tiempo real publicados al instante",
   "Equipo técnico certificado en eventos internacionales",
+  "Cobertura completa desde inscripción hasta resultados",
 ];
 
 const AboutSection = () => {

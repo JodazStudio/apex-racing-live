@@ -1,4 +1,4 @@
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 
 const ContactCTA = () => {
   return (
@@ -33,7 +33,7 @@ const ContactCTA = () => {
         {/* Contact info */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://wa.me/5215500000000"
+            href="https://wa.me/5804121315110"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-mechanical bg-primary text-primary-foreground"
@@ -42,7 +42,7 @@ const ContactCTA = () => {
             WhatsApp
           </a>
           <a
-            href="mailto:info@chronosport.mx"
+            href="mailto:jesus@jodaz.xyz"
             className="btn-mechanical-outline border-hero-foreground/30 text-hero-foreground"
             style={{
               boxShadow: "4px 4px 0px 0px hsl(0 0% 100% / 0.2)",
@@ -56,11 +56,15 @@ const ContactCTA = () => {
         <div className="mt-8 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-8">
           <div className="flex items-center gap-2 text-sm text-hero-foreground/60">
             <Phone className="h-4 w-4" />
-            <span className="font-mono">+52 55 0000 0000</span>
+            <span className="font-mono">+58 0412 131 5110</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-hero-foreground/60">
             <Mail className="h-4 w-4" />
-            <span className="font-mono">info@chronosport.mx</span>
+            <span className="font-mono">jesus@jodaz.xyz</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-hero-foreground/60">
+            <MapPin className="h-4 w-4" />
+            <span className="font-mono">Carúpano, Venezuela</span>
           </div>
         </div>
       </div>

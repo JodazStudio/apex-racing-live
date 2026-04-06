@@ -10,9 +10,9 @@ const footerLinks = {
     "Certificación",
   ],
   contacto: [
-    { label: "+52 55 0000 0000", href: "tel:+525500000000" },
-    { label: "info@chronosport.mx", href: "mailto:info@chronosport.mx" },
-    { label: "Ciudad de México, MX", href: "#" },
+    { label: "+58 0412 131 5110", href: "tel:+5804121315110" },
+    { label: "jesus@jodaz.xyz", href: "mailto:jesus@jodaz.xyz" },
+    { label: "Carúpano, Venezuela", href: "#" },
   ],
   legal: [
     "Aviso de Privacidad",
