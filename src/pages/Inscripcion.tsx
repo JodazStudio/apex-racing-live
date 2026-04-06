@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Timer, ArrowLeft, Bike, User, Phone, Mail, CreditCard, ShirtIcon, CheckCircle } from "lucide-react";
+import { Timer, ArrowLeft, Bike, User, Phone, Mail, CreditCard, ShirtIcon, CheckCircle, CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "sonner";
 
 const PREVENTA_LIMIT = 30;
@@ -15,7 +21,7 @@ const Inscripcion = () => {
     nombre: "",
     apellido: "",
     cedula: "",
-    edad: "",
+    fechaNacimiento: undefined as Date | undefined,
     sexo: "",
     categoria: "",
     modalidad: "",
@@ -35,7 +41,7 @@ const Inscripcion = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.nombre || !formData.apellido || !formData.cedula || !formData.edad || !formData.sexo || !formData.categoria || !formData.modalidad || !formData.telefono || !formData.email) {
+    if (!formData.nombre || !formData.apellido || !formData.cedula || !formData.fechaNacimiento || !formData.sexo || !formData.categoria || !formData.modalidad || !formData.telefono || !formData.email) {
       toast.error("Por favor completa todos los campos obligatorios.");
       return;
     }
@@ -158,19 +164,42 @@ const Inscripcion = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="edad" className="font-mono text-xs uppercase tracking-widest">
-                  Edad *
+                <Label className="font-mono text-xs uppercase tracking-widest">
+                  Fecha de Nacimiento *
                 </Label>
-                <Input
-                  id="edad"
-                  type="number"
-                  min="10"
-                  max="99"
-                  value={formData.edad}
-                  onChange={(e) => handleChange("edad", e.target.value)}
-                  placeholder="Ej: 28"
-                  className="rounded-none border-border font-mono tabular-nums"
-                />
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal rounded-none border-border",
+                        !formData.fechaNacimiento && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {formData.fechaNacimiento
+                        ? format(formData.fechaNacimiento, "dd/MM/yyyy", { locale: es })
+                        : "Selecciona tu fecha de nacimiento"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={formData.fechaNacimiento}
+                      onSelect={(date) =>
+                        setFormData((prev) => ({ ...prev, fechaNacimiento: date }))
+                      }
+                      disabled={(date) =>
+                        date > new Date() || date < new Date("1920-01-01")
+                      }
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                      captionLayout="dropdown-buttons"
+                      fromYear={1920}
+                      toYear={new Date().getFullYear()}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
 
